@@ -1,0 +1,48 @@
+public class SalesOrder {
+  @AuraEnabled @InvocableVariable(label='Sales Order Purchase Date' description='Datetime of the date of SalesOrder Purchase.') public Datetime purchaseDatetime;
+  @AuraEnabled @InvocableVariable(label='Sales Order Id' description='Sales Order Id.') public String salesorderId;
+  @AuraEnabled @InvocableVariable(label='SalesOrder Total Amount Charged' description='Total amount charged.') public Decimal salesorderTotalAmountCharged;
+  @AuraEnabled @InvocableVariable(label='Individual ID' description='Identifier for the customer.') public String individualId;
+  @AuraEnabled @InvocableVariable(label='Product Name' description='Name of the product that was purchased.') public String productName;
+  @AuraEnabled @InvocableVariable(label='Product ID' description='SKU ID for Product.') public String productId;
+ @AuraEnabled @InvocableVariable(label='Individual First Name' description='First name of the customer.') public String individualFirstName;
+ @AuraEnabled @InvocableVariable(label='Individual Last Name' description='Last name of the customer.') public String individualLastName;
+  
+  public void setPurchaseDate(String purchaseValue) {
+      if(!String.isBlank(purchaseValue)) {
+          this.purchaseDatetime = Datetime.valueOf(purchaseValue);
+      }
+  }
+  
+  public void setSalesOrderId(String idValue) {
+      this.salesorderId = idValue;
+  }
+  
+  
+  public void SalesOrderTotalAmountCharged(String amountValue) {
+      if(!String.isBlank(amountValue)) {
+          this.salesorderTotalAmountCharged = Decimal.valueOf(amountValue);
+      }
+  }
+
+  public void setProductName(String productName) {
+      this.productName = productName;
+  }
+   public void setProductId(String productId) {
+      this.productId = productId;
+  }
+   
+  public void setIndividualFirstName(String firstNameValue) {
+      this.individualFirstName = firstNameValue;
+  }
+  
+  public void setIndividualId(String idValue) {
+      this.individualId = idValue;
+  }
+  
+  public void setIndividualLastName(String lastNameValue) {
+      this.individualLastName = lastNameValue;
+  }
+  
+ 
+}

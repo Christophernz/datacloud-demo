@@ -1,0 +1,66 @@
+public class LoyaltyProspect {
+  @AuraEnabled @InvocableVariable(label='Rental Created Date' description='Datetime of rental record creation.') public Datetime rentalCreatedDatetime;
+  @AuraEnabled @InvocableVariable(label='Rental Id' description='Rental record Id.') public String rentalId;
+  @AuraEnabled @InvocableVariable(label='Rental Purpose' description='The purpose of the rental, such as Business or Leisure. Optional value.') public String rentalPurpose;
+  @AuraEnabled @InvocableVariable(label='Rental Start Date' description='Date when rental starts.') public Date rentalStartDate;
+  @AuraEnabled @InvocableVariable(label='Rental Total Amount Charged' description='Total amount charged for the rental.') public Decimal rentalTotalAmountCharged;
+  @AuraEnabled @InvocableVariable(label='Individual Birthdate' description='Birthdate of the customer.') public Date individualBirthDate;
+  @AuraEnabled @InvocableVariable(label='Individual External Record Id' description='External identifier for the customer.') public String individualExternalRecordId;
+  @AuraEnabled @InvocableVariable(label='Individual First Name' description='First name of the customer.') public String individualFirstName;
+  @AuraEnabled @InvocableVariable(label='Individual Id' description='Customer record Id.') public String individualId;
+  @AuraEnabled @InvocableVariable(label='Individual Last Name' description='Last name of the customer.') public String individualLastName;
+  @AuraEnabled @InvocableVariable(label='Individual Salutation' description='Salutation. Optional value.') public String individualSalutation;
+  
+  public void setRentalCreatedDate(String isoValue) {
+      if(!String.isBlank(isoValue)) {
+          this.rentalCreatedDatetime = Datetime.valueOf(isoValue);
+      }
+  }
+  
+  public void setRentalId(String idValue) {
+      this.rentalId = idValue;
+  }
+  
+  public void setRentalPurpose(String purposeValue) {
+      this.rentalPurpose = purposeValue;
+  }
+  
+  public void setRentalStartDate(String isoValue) {
+      if(!String.isBlank(isoValue)) {
+          this.rentalStartDate = Date.valueOf(isoValue);
+      }
+  }
+  
+  public void RentalTotalAmountCharged(String amountValue) {
+      if(!String.isBlank(amountValue)) {
+          this.rentalTotalAmountCharged = Decimal.valueOf(amountValue);
+      }
+  }
+
+  public void setIndividualBirthDate(String isoValue) {
+      if(!String.isBlank(isoValue)) {
+          this.individualBirthDate = Date.valueOf(isoValue);
+      }
+  }
+  
+  public void setIndividualExternalRecordId(String idValue) {
+      this.individualExternalRecordId = idValue;
+  }
+  
+  public void setIndividualFirstName(String firstNameValue) {
+      this.individualFirstName = firstNameValue;
+  }
+  
+  public void setIndividualId(String idValue) {
+      this.individualId = idValue;
+  }
+  
+  public void setIndividualLastName(String lastNameValue) {
+      this.individualLastName = lastNameValue;
+  }
+  
+  public void setIndividualSalutation(String salutationValue) {
+      this.individualSalutation = salutationValue;
+  }
+ 
+}
