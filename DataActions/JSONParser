@@ -1,55 +1,46 @@
 public with sharing class JSONParser {
     
-  @InvocableMethod(label='Parse JSON to LoyaltyProspect' description='Parse JSON payload from platform event to LoyaltyProspect record')
-  public static List<LoyaltyProspect> parseJSONToLoyaltyProspect(List<JSONRequest> requests) {
-      List<LoyaltyProspect> results = new List<LoyaltyProspect>();
+  @InvocableMethod(label='Parse JSON to SalesOrder' description='Parse JSON payload from platform event to SalesOrder Object')
+  public static List<SalesOrder> parseJSONToSalesOrder(List<JSONRequest> requests) {
+      List<SalesOrder> results = new List<SalesOrder>();
       
       for (JSONRequest request : requests) {
           String jsonString = request.jsonString;
           Map<String, Object> jsonMap = (Map<String, Object>) JSON.deserializeUntyped(jsonString);
-          results.add(parseLoyaltyProspectFromMap(jsonMap));
+          results.add(parseSalesOrderFromMap(jsonMap));
       }
-      
       return results;
   }
   
-  private static LoyaltyProspect parseLoyaltyProspectFromMap(Map<String, Object> jsonMap) {
-      LoyaltyProspect result = new LoyaltyProspect();
+  private static SalesOrder parseSalesOrderFromMap(Map<String, Object> jsonMap) {
+      SalesOrder result = new SalesOrder();
       
       /* check all respective keys and if found set appropriate attribute */
-      if(jsonMap.containsKey('Rental__dlm_CreatedDate__c')) {
-        result.setRentalCreatedDate((String)String.valueOf(jsonMap.get('Rental__dlm_CreatedDate__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_PurchaseOrderDate__c')) {
+        result.setPurchaseDate((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_PurchaseOrderDate__c')));
       }
-      if(jsonMap.containsKey('Rental__dlm_Id__c')) {
-        result.setRentalId((String)String.valueOf(jsonMap.get('Rental__dlm_Id__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_Id__c')) {
+        result.setSalesOrderId((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_Id__c')));
       }      
-      if(jsonMap.containsKey('Rental__dlm_Purpose__c')) {
-        result.setRentalPurpose((String)String.valueOf(jsonMap.get('Rental__dlm_Purpose__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_Name__c')) {
+        result.setProductName((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_Name__c')));
       }
-      if(jsonMap.containsKey('Rental__dlm_Start_Date_c__c')) {
-        result.setRentalStartDate((String)String.valueOf(jsonMap.get('Rental__dlm_Start_Date_c__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_ProductID__c')) {
+        result.setProductId((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_ProductID__c')));
       }
-      if(jsonMap.containsKey('Rental__dlm_Total_Amount_Charged_c__c')) {
-        result.RentalTotalAmountCharged((String)String.valueOf(jsonMap.get('Rental__dlm_Total_Amount_Charged_c__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_SoldToCustomerId__c')) {
+        result.setIndividualId((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_SoldToCustomerId__c')));
       }
-      if(jsonMap.containsKey('ssot__Individual__dlm_Birth_Date__c')) {
-        result.setIndividualBirthDate((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_Birth_Date__c')));
+      if(jsonMap.containsKey('dem_SalesOrder__dlm_TotalAmount__c')) {
+        result.setSalesOrderTotalAmountCharged((String)String.valueOf(jsonMap.get('dem_SalesOrder__dlm_TotalAmount__c')));
       }
-      if(jsonMap.containsKey('ssot__Individual__dlm_ssot__ExternalRecordId__c')) {
-        result.setIndividualExternalRecordId((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_ssot__ExternalRecordId__c')));
+      if(jsonMap.containsKey('dem_Individual__dlm_FirstName__c')) {
+        result.setIndividualFirstName((String)String.valueOf(jsonMap.get('dem_Individual__dlm_FirstName__c')));
       }
-      if(jsonMap.containsKey('ssot__Individual__dlm_ssot__FirstName__c')) {
-        result.setIndividualFirstName((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_ssot__FirstName__c')));
+      if(jsonMap.containsKey('dem_Individual__dlm_LastName__c')) {
+        result.setIndividualLastName((String)String.valueOf(jsonMap.get('dem_Individual__dlm_LastName__c')));
       }
-      if(jsonMap.containsKey('ssot__Individual__dlm_ssot__Id__c')) {
-        result.setIndividualId((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_ssot__Id__c')));
-      }
-      if(jsonMap.containsKey('ssot__Individual__dlm_ssot__LastName__c')) {
-        result.setIndividualLastName((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_ssot__LastName__c')));
-      }
-      if(jsonMap.containsKey('ssot__Individual__dlm_ssot__Salutation__c')) {
-        result.setIndividualSalutation((String)String.valueOf(jsonMap.get('ssot__Individual__dlm_ssot__Salutation__c')));
-      }
+
           
       return result;
   }
