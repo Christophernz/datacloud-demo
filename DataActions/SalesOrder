@@ -19,7 +19,7 @@ public class SalesOrder {
   }
   
   
-  public void SalesOrderTotalAmountCharged(String amountValue) {
+  public void setSalesOrderTotalAmountCharged(String amountValue) {
       if(!String.isBlank(amountValue)) {
           this.salesorderTotalAmountCharged = Decimal.valueOf(amountValue);
       }
