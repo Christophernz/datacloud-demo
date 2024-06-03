@@ -12,14 +12,14 @@ header {
     align-items: center;
 }
 
-.header-content h1 {
+/* .header-content h1 {
     margin: 0;
     font-family: 'Montserrat';
     font-family: Montserrat;
     font-weight: 400;
     font-size: 15pt;
     line-height: 1.33;
-}
+} */
 
 .header-content {
     -webkit-box-align: center;
@@ -31,7 +31,7 @@ header {
     left: 0;
 }
 
-h2 {
+/* h2 {
     font-family: 'Montserrat';
     line-height: 1.2;
     font-weight: 800;
@@ -45,9 +45,9 @@ h2 {
     border-bottom-width: 5px;
     border-top-width: 5px;
     padding: 35px 0 17px;
-}
+} */
 
-p {
+/* p {
     font-size: 13.333333333333332px;
     font-family: 'Montserrat';
     font-weight: 400;
@@ -55,7 +55,7 @@ p {
     color: rgba(33, 33, 33, 1);
     line-height: 1.9;
     text-align: left;
-}
+} */
 
 .product-meta p {
     font-size: 16px;
@@ -104,8 +104,8 @@ main {
     /* max-width: 100%;
     margin-right: 20px; */
     margin-right: 30px;
-    width: 463px;
-    height: 260px;
+    width: 400px;
+
 }
 
 .product-details {
@@ -185,17 +185,17 @@ footer {
 
 .order-bg h1 {
     color: #82d199;
-    font-size: 8em;
+    font-size: 4em;
     font-family: 'Space Mono';
     margin-top: 39px;
-    line-height: 141px;
+    line-height: 80px;
 }
 
 .order-bg .our-business {
     color: #526070;
     font-size: 28px;
     line-height: 1.5;
-    width: 294px;
+    width: 600px;
     padding-top: 0;
     margin-top: 0;
     padding-left: 0;
@@ -206,7 +206,7 @@ footer {
     color: #526070;
     text-align: right;
     font-size: 33px;
-    padding-right: 124px;
+    padding-right: 80px;
     font-family: 'Space Mono';
 }
 
